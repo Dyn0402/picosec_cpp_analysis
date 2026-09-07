@@ -1,2 +1,13 @@
+alternative_codes/
+back_up/
+condor_tests/
+*processedTrees_run_list.txt
+**/log/
+**/err/
+**/out/
+*_ACLiC_*
+*.pcm
+*.d
+*.so
 .idea/
 cmake-build-debug/
