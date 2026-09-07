@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <map>
 #include <chrono>
-#include "MyFunctions_2023_April.C"
+#include "../2023_April_h4/MyFunctions_2023_April.C"
 
 class RMSBaselineCalculator {
 public:
@@ -40,6 +40,14 @@ public:
             return -1;
         }
         return epoch_rmses[epoch];
+    }
+
+    vector<ULong64_t> get_epochs() const {
+        std::vector<ULong64_t> epochs;
+        for (const auto& pair : epoch_baselines) {
+            epochs.push_back(pair.first);
+        }
+        return epochs;
     }
 
 private:
@@ -137,6 +145,9 @@ void RMSBaselineCalculator::Process() {
 //    cout << "Getting event by event stats" << endl;
     Long64_t nEntries = tree->GetEntries();
     for (Long64_t i = 0; i < nEntries; ++i) {
+        if (i > 2000) {
+            break;
+        }
         tree->GetEntry(i);
 
         std::vector<double> t_values(timeValues, timeValues + iRMSCut);

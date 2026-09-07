@@ -9,3 +9,5 @@ condor_tests/
 *.pcm
 *.d
 *.so
+.idea/
+cmake-build-debug/
